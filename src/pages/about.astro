@@ -1,0 +1,43 @@
+---
+import "../styles/global.css"
+
+const pageTitle = "About"
+
+const identity = {
+    name: "Jordi",
+    country: "Catalunya",
+    occupation: "Frontend designer",
+    hobbies: ["fotografia", "ocells", "lectura"]
+}
+
+const skills = ["HTML", "CSS", "Javascript", "Astro"]
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle} - Astro Build</title>
+    </head>
+    <body>
+        <h1>{pageTitle}</h1>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+
+        <ul>
+            <li>Soc en {identity.name}</li>
+            <li>Visc a {identity.country}</li>
+            {identity.hobbies.length >= 3 &&
+                <li>Les meves aficions son: {identity.hobbies[0]}, {identity.hobbies[1]} i {identity.hobbies[2]}</li>
+            }
+        </ul>
+
+        <p>Les meves habilitats son:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+    </body>
+</html>
